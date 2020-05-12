@@ -7,10 +7,10 @@
 </head>
 <body>
     
-    <% names.forEach(function(name) { %>
+    <% names.forEach((name) => { %>
         <ul>
             <li>
-                <%= name %>
+                 <a href="company/<%= name %>"><%= name %></a>
             </li>
         </ul>
     <% }); %>

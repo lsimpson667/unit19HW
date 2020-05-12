@@ -74,22 +74,28 @@ app.get('/jobs', (request, response) => {
         names: companies
     });
 });
+// Part 3
+// app.get('/company/:company_name', (request, response) => {
+//     const parameters = request.params;
+//     const provided_company_name = parameters.company_name;
 
+//     response.render('pages/company', {
+//         name: provided_company_name
+//     });
+// });
+ //Part 4 
 app.get('/company/:company_name', (request, response) => {
-   const parameters = request.params;
-
-   const provided_company_name = parameters.company_name;
-
-//    const company_description = parameters.company_description;
-//    const company_logo = parameters.company_logo;
-    
+    const parameters = request.params;
+    const provided_company_name = parameters.company_name;
+    company_data = COMPANIES[provided_company_name]
+   
 
     response.render('pages/company', {
-        'name': provided_company_name,
-        // 'description': company_description,
-        // 'logo': company_logo
+        name : provided_company_name,
     });
 });
+
+
 
 // Server is started on the given PORT
 app.listen(PORT, () => {console.log(`Server running on port: ${PORT}`)});
